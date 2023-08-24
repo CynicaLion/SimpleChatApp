@@ -1,0 +1,16 @@
+{
+  "name": "simplechatapp",
+  "version": "1.0.0",
+  "description": "Simple Chat App made using with the help of ChatGPT as assignment 1 for the 100x Engineers cohort",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  }
+}
