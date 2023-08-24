@@ -4,12 +4,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const chatMessages = document.getElementById('chat-messages');
+    const emojiMapping = {
+    "React": "🌟",
+    "Woah": "😯",
+    "Hey": "👋",
+    "Lol": "😂",
+    "Like":  "🤍",
+    "Congratulations": "🎉",
+
+
+
+ };
 
     sendButton.addEventListener('click', () => {
-        const message = messageInput.value;
+        let message = messageInput.value; 
+
+        for (const keyword in emojiMapping) {
+            if (message.includes(keyword)) {
+                message = message.replace(keyword, emojiMapping[keyword]);
+            }
+        }
+
         if (message.trim() !== '') {
             socket.emit('chat message', message);
-            messageInput.value = '';
+            messageInput.value = ''; // Clear the input field after sending
         }
     });
 
@@ -20,4 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     });
 });
-
